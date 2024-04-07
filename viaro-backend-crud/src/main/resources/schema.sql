@@ -38,7 +38,8 @@ CREATE TABLE IF NOT EXISTS Seccion(
     IdGrado INT,
     IdSeccion VARCHAR(1),
     Active VARCHAR(1) NOT NULL,
-    PRIMARY KEY (IdGrado, IdSeccion)
+    PRIMARY KEY (IdGrado, IdSeccion),
+    FOREIGN KEY (IdGrado) REFERENCES Grado(IdGrado)
 );
 
 CREATE TABLE IF NOT EXISTS AlumnoGrado(
