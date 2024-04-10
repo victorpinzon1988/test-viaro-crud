@@ -9,20 +9,20 @@ import jakarta.persistence.Table;
 public class AlumnoGrado {
 
     @EmbeddedId
-    private AlumnoGradoKey alumnoGradoKey;
+    private AlumnoGradoPKKey alumnoGradoPKKey;
 
     public AlumnoGrado() {
     }
 
-    public AlumnoGrado(AlumnoGradoKey alumnoGradoKey) {
-        this.alumnoGradoKey = alumnoGradoKey;
+    public AlumnoGrado(AlumnoGradoPKKey alumnoGradoPKKey) {
+        this.alumnoGradoPKKey = alumnoGradoPKKey;
     }
 
-    public AlumnoGradoKey getAlumnoGradoKey() {
-        return alumnoGradoKey;
+    public AlumnoGradoPKKey getAlumnoGradoKey() {
+        return alumnoGradoPKKey;
     }
 
-    public void setAlumnoGradoKey(AlumnoGradoKey alumnoGradoKey) {
-        this.alumnoGradoKey = alumnoGradoKey;
+    public void setAlumnoGradoKey(AlumnoGradoPKKey alumnoGradoPKKey) {
+        this.alumnoGradoPKKey = alumnoGradoPKKey;
     }
 }

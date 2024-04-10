@@ -3,6 +3,7 @@ package com.viaro.test.viarobackendcrud.model.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "Alumno")
@@ -27,17 +28,20 @@ public class Alumno {
     @Column(name = "FechaNacimiento")
     private LocalDate fechaNacimiento;
 
+    @OneToMany(mappedBy = "alumnoGradoPKKey.alumnoId")
+    private List<AlumnoGrado> alumnoGradoList;
+
     public Alumno() {
     }
 
-    public Alumno(Integer idAlumno, String primerNombre, String segundoNombre, String tercerNombre, String primerApellido, String segundoApellido, Genero genero, LocalDate fechaNacimiento) {
+    public Alumno(Integer idAlumno, String primerNombre, String segundoNombre, String tercerNombre, String primerApellido, String segundoApellido, Genero generoId, LocalDate fechaNacimiento) {
         this.idAlumno = idAlumno;
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
         this.tercerNombre = tercerNombre;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
-        generoId = genero;
+        this.generoId = generoId;
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -105,6 +109,15 @@ public class Alumno {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+
+    public Genero getGeneroId() {
+        return generoId;
+    }
+
+    public void setGeneroId(Genero generoId) {
+        this.generoId = generoId;
+    }
+
     @Override
     public String toString() {
         return "Alumno{" +
@@ -114,7 +127,7 @@ public class Alumno {
                 ", tercerNombre='" + tercerNombre + '\'' +
                 ", primerApellido='" + primerApellido + '\'' +
                 ", segundoApellido='" + segundoApellido + '\'' +
-                ", Genero=" + generoId +
+                ", generoId=" + generoId +
                 ", fechaNacimiento=" + fechaNacimiento +
                 '}';
     }

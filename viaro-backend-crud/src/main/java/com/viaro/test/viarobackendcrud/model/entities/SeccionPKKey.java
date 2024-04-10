@@ -1,22 +1,21 @@
 package com.viaro.test.viarobackendcrud.model.entities;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.ManyToOne;
 
 import java.io.Serializable;
 
 @Embeddable
-public class SeccionKey implements Serializable {
+public class SeccionPKKey implements Serializable {
 
     @ManyToOne
     private Grado grado;
     private String idSeccion;
 
-    public SeccionKey() {
+    public SeccionPKKey() {
     }
 
-    public SeccionKey(Grado grado, String idSeccion) {
+    public SeccionPKKey(Grado grado, String idSeccion) {
         this.grado = grado;
         this.idSeccion = idSeccion;
     }

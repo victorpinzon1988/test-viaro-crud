@@ -32,6 +32,9 @@ public class Profesor {
     @OneToMany(mappedBy = "profesor")
     private List<Grado> grados;
 
+    public Profesor() {
+    }
+
     public Profesor(Integer idProfesor) {
         this.idProfesor = idProfesor;
     }
@@ -109,6 +112,14 @@ public class Profesor {
 
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public List<Grado> getGrados() {
+        return grados;
+    }
+
+    public void setGrados(List<Grado> grados) {
+        this.grados = grados;
     }
 
     @Override

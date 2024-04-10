@@ -2,6 +2,8 @@ package com.viaro.test.viarobackendcrud.model.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Grado")
 public class Grado {
@@ -13,6 +15,9 @@ public class Grado {
     private String nombreGrado;
     @ManyToOne
     private Profesor profesor;
+
+    @OneToMany(mappedBy = "seccionPKKey.grado")
+    private List<Seccion> seccionList;
 
     public Grado() {
     }
@@ -49,6 +54,14 @@ public class Grado {
 
     public void setProfesor(Profesor profesor) {
         this.profesor = profesor;
+    }
+
+    public List<Seccion> getSeccionList() {
+        return seccionList;
+    }
+
+    public void setSeccionList(List<Seccion> seccionList) {
+        this.seccionList = seccionList;
     }
 
     @Override
